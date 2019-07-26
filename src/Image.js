@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import OpenSeadragon from 'openseadragon';
+import logo from './dzi_files/10/0_0.jpg';
+//import logo1 from './dzi_files';
 
 export default class Image extends Component {
 
+    constructor(props){
+        super(props);
+        var imagePath = ''  
+    }
+
 componentDidMount() {
     
-    var dimage = {
+    
+
+    var dimage1 = {
         Image: {
         xmlns: "http://schemas.microsoft.com/deepzoom/2008",
-        Url: '//openseadragon.github.io/example-images/duomo/duomo_files/',
+        Url: ' https://preetham1230.github.io/static/media/dzi_files/',
         Format: "jpg",
         TileSize: "256",
+        CrossOriginPolicy: '*',
         Size: {
             Width:  "13920",
             Height: "10200"
@@ -21,7 +31,8 @@ componentDidMount() {
     var viewer = OpenSeadragon({
         id: "image-viewer",
         prefixUrl: "//openseadragon.github.io/openseadragon/images/",
-        tileSources: dimage
+        sequenceMode: true,
+        tileSources: dimage1
     });
 }
     
@@ -32,14 +43,10 @@ componentDidMount() {
   
         return (
             <div>
-            <div id="image-viewer" style={{width: '800px', height: '800px', padding:'100px'}}  ></div>
+                OPEN SEADRAGON DEMO 
+            <div id="image-viewer" style={{width: '800px', height: '800px', padding:'50px'}}  ></div>
 
-            <div>
-                Image
-                <img src={require('./dzi_files/10/0_0.jpg')}></img>
-            </div>
-
-            </div>
+             </div>
         )
     }
 }
